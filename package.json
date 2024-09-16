@@ -1,10 +1,10 @@
 {
-  "name": "@diva-e/xwalk-boilerplate",
+  "name": "@diva-e/dvag-test",
   "private": true,
   "version": "0.0.1",
-  "description": "diva-e AEM-XWalk Boilerplate",
+  "description": "dvag test",
   "scripts": {
-    "aemUp": "aem up",
+    "aemUp": "aem up --tls-cert ../universaleditor/localhost.crt --tls-key ../universaleditor/localhost.key",
     "build": "tsc && vite build -c vite.config.ts && vite build -c vite.config-editor.ts",
     "build:watch": "run-p tsc:watch vite:watch",
     "build:doc": "ts-node  -O '{\"module\": \"commonjs\"}' ./tools/doc/generate.ts",
