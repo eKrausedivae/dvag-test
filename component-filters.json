@@ -5,16 +5,7 @@
   },
   {
     "id": "section",
-    "components": [
-      "text",
-      "image",
-      "button",
-      "hero",
-      "title",
-      "cards",
-      "columns",
-      "fragment"
-    ]
+    "components": ["text", "image", "button", "hero", "title", "cards", "columns", "fragment", "vbpage"]
   },
   {
     "id": "cards",

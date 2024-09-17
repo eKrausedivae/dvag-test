@@ -17,6 +17,11 @@ class FetchService {
 
   private runtimeCache = new RuntimeCache();
 
+  public fetchJsonExternal<T>(endpoint: string, options: FetchServiceOptions = {}): Promise<T> {
+    // eslint-disable-next-line @typescript-eslint/unbound-method -- `getResponseJSON` does not access `this`
+    return this.fetchData(endpoint, options, this.getResponseJSON<T>);
+  }
+
   public fetchJson<T>(endpoint: string, options: FetchServiceOptions = {}): Promise<T> {
     // eslint-disable-next-line @typescript-eslint/unbound-method -- `getResponseJSON` does not access `this`
     return this.fetchData(getUrlForEndpoint(endpoint).href, options, this.getResponseJSON<T>);

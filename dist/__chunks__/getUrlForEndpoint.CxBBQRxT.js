@@ -1,0 +1,2 @@
+import{i as s}from"./isSidekickLibraryActive.U-fJCMMj.js";function a(){return s()?window.parent.location.origin:window.location.origin}const c=t=>{try{const r=a(),o=window.hlx.codeBasePath.endsWith("/")?window.hlx.codeBasePath:`${window.hlx.codeBasePath}/`;let i=t;t.startsWith("./")?i=t.substring(2):t.startsWith("/")&&(i=t.substring(1));const n=`${o}${i}`;return new URL(n,r)}catch(r){throw new Error(`Failed to build Url for endpoint: ${r}`)}};export{c as g};
+//# sourceMappingURL=getUrlForEndpoint.CxBBQRxT.js.map
