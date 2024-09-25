@@ -1,0 +1,11 @@
+// z-index
+/* stylelint-disable scss/dollar-variable-pattern */
+$zIndex-overlay-sticky-header: 2;
+$zIndex-youtube-play-button: 5;
+$zIndex-vb-configurator-menu: 30;
+$zIndex-n01-header: 100;
+$zIndex-floatingCta: 550;
+$zIndex-navigation: 700;
+$zIndex-overlay: 800;
+$zIndex-cookie-overlay: 1000; // cookie-overlay-zIndex must be highest of all overlays
+/* stylelint-enable scss/dollar-variable-pattern */

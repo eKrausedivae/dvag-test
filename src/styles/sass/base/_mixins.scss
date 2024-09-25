@@ -1,0 +1,33 @@
+// keyframe mixin needed in spinner-animation
+@mixin keyframes($animationName) {
+  @keyframes #{$animationName} {
+    @content;
+  }
+
+  @keyframes #{$animationName} {
+    @content;
+  }
+
+  @keyframes #{$animationName} {
+    @content;
+  }
+
+  @keyframes #{$animationName} {
+    @content;
+  }
+}
+
+/**
+ * Wrapper for hover styles with CSS hover feature detection
+ */
+@mixin hover($applyPseudo: true, $hover: "hover", $pointer: "fine") {
+  @media (hover: $hover) and (pointer: $pointer) {
+    @if $applyPseudo {
+      &:hover {
+        @content;
+      }
+    } @else {
+      @content;
+    }
+  }
+}

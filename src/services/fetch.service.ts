@@ -27,6 +27,11 @@ class FetchService {
     return this.fetchData(getUrlForEndpoint(endpoint).href, options, this.getResponseJSON<T>);
   }
 
+  public fetchTextExternal(endpoint: string, options: FetchServiceOptions = {}): Promise<string> {
+    // eslint-disable-next-line @typescript-eslint/unbound-method -- `getResponseText` does not access `this`
+    return this.fetchData(endpoint, options, this.getResponseText);
+  }
+
   public fetchText(endpoint: string, options: FetchServiceOptions = {}): Promise<string> {
     // eslint-disable-next-line @typescript-eslint/unbound-method -- `getResponseText` does not access `this`
     return this.fetchData(getUrlForEndpoint(endpoint).href, options, this.getResponseText);

@@ -1,0 +1,50 @@
+@import '../fonts';
+
+%dva-m-rich-text {
+  a {
+    color: $dvag-color__black-300;
+    text-decoration: none;
+
+    &:hover,
+    &:active,
+    &:focus {
+      text-decoration: none;
+    }
+  }
+
+  ul {
+    margin: 1em 0;
+    padding: 0 1em;
+    list-style-position: outside;
+
+    li {
+      margin-bottom: 5px;
+    }
+  }
+
+  p {
+    margin: 0;
+    margin-bottom: 1em;
+  }
+
+  b,
+  strong {
+    @extend %dvag-type-bold;
+  }
+}
+
+%basic-link-overrides {
+  color: $dvag-color__gold-500;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+
+  &:hover,
+  &:active,
+  &:focus {
+    text-decoration: none;
+  }
+
+  &:hover {
+    color: $dvag-color__gold-700;
+  }
+}

@@ -1,20 +1,349 @@
-/* stylelint-disable max-line-length */
+@import 'node_modules/breakpoint-sass/stylesheets/breakpoint';
+@import 'base/grid';
+
+// dvag-type
 @font-face {
-  font-family: roboto;
-  font-weight: 700;
+  font-family: 'dvag-type';
+  font-weight: 300;
   font-style: normal;
   font-display: swap;
-  src: url('Roboto/roboto-bold.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC,
-    U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  src:
+    url('../../resources/fonts/dvag-type/woff2/DVAGType_W_Lt.woff2') format('woff2'),
+    url('../../resources/fonts/dvag-type/woff/DVAGType_W_Lt.woff') format('woff');
 }
 
 @font-face {
-  font-family: roboto;
+  font-family: 'dvag-type';
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+  src:
+    url('../../resources/fonts/dvag-type/woff2/DVAGType_W_LtIt.woff2') format('woff2'),
+    url('../../resources/fonts/dvag-type/woff/DVAGType_W_LtIt.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'dvag-type';
   font-weight: 400;
   font-style: normal;
   font-display: swap;
-  src: url('Roboto/roboto-regular.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC,
-    U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  src:
+    url('../../resources/fonts/dvag-type/woff2/DVAGType_W_Rg.woff2') format('woff2'),
+    url('../../resources/fonts/dvag-type/woff/DVAGType_W_Rg.woff') format('woff');
 }
+
+@font-face {
+  font-family: 'dvag-type';
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+  src:
+    url('../../resources/fonts/dvag-type/woff2/DVAGType_W_It.woff2') format('woff2'),
+    url('../../resources/fonts/dvag-type/woff/DVAGType_W_It.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'dvag-type';
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src:
+    url('../../resources/fonts/dvag-type/woff2/DVAGType_W_Bd.woff2') format('woff2'),
+    url('../../resources/fonts/dvag-type/woff/DVAGType_W_Bd.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'dvag-type';
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+  src:
+    url('../../resources/fonts/dvag-type/woff2/DVAGType_W_BdIt.woff2') format('woff2'),
+    url('../../resources/fonts/dvag-type/woff/DVAGType_W_BdIt.woff') format('woff');
+}
+
+$dva-typo__dvag-type: 'dvag-type', sans-serif;
+
+@mixin smoothing {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+// helper classes to manually set light, bold or italic styles
+%dvag-type-bold {
+  font-weight: 700;
+}
+
+%dvag-type-regular {
+  font-weight: 400;
+}
+
+%dvag-type-light {
+  font-weight: 300;
+}
+
+%dvag-type-italic {
+  font-style: italic;
+}
+
+.dvag-type-bold {
+  @extend %dvag-type-bold;
+}
+
+.dvag-type-regular {
+  @extend %dvag-type-regular;
+}
+
+.dvag-type-light {
+  @extend %dvag-type-light;
+}
+
+.dvag-type-italic {
+  @extend %dvag-type-italic;
+}
+
+// take font selector and render variants in bold and light
+@mixin generate-font-variants($font: 'dvag-type-500') {
+  // Bold
+  %dvag-type-#{$font}-bold {
+    @extend %dvag-type-#{$font};
+    @extend %dvag-type-bold;
+  }
+  .dvag-type-#{$font}-bold {
+    @extend %dvag-type-#{$font}-bold;
+  }
+  // Bold-Italic
+  %dvag-type-#{$font}-bold-italic {
+    @extend %dvag-type-#{$font};
+    @extend %dvag-type-bold;
+    @extend %dvag-type-italic;
+  }
+  .dvag-type-#{$font}-bold-italic {
+    @extend %dvag-type-#{$font}-bold-italic;
+  }
+  // Light
+  %dvag-type-#{$font}-light {
+    @extend %dvag-type-#{$font};
+    @extend %dvag-type-light;
+  }
+  .dvag-type-#{$font}-light {
+    @extend %dvag-type-#{$font}-light;
+  }
+  // Light-Italic
+  %dvag-type-#{$font}-light-italic {
+    @extend %dvag-type-#{$font};
+    @extend %dvag-type-light;
+    @extend %dvag-type-italic;
+  }
+  .dvag-type-#{$font}-light-italic {
+    @extend %dvag-type-#{$font}-light-italic;
+  }
+  // Italic
+  %dvag-type-#{$font}-italic {
+    @extend %dvag-type-#{$font};
+    @extend %dvag-type-italic;
+  }
+  .dvag-type-#{$font}-italic {
+    @extend %dvag-type-#{$font}-italic;
+  }
+}
+
+// LSG-Typography-Type
+// Placeholder-Tag: p
+// Placeholder-Word-Count: 8
+%dvag-type-975 {
+  margin: 0;
+  font-family: $dva-typo__dvag-type;
+  font-size: 3rem; // 48px
+  line-height: 1.25; // 60px
+
+  @include breakpoint($mq-4-and-up) {
+    font-size: 4rem; // 64px -> line-height: 80px;
+  }
+}
+
+.dvag-type-975 {
+  @extend %dvag-type-975;
+}
+
+@include generate-font-variants($font: '975');
+
+// LSG-Typography-Type
+// Placeholder-Tag: p
+// Placeholder-Word-Count: 8
+%dvag-type-950 {
+  margin: 0 0 24px;
+  font-family: $dva-typo__dvag-type;
+  font-size: 2.375rem; // 38px
+  line-height: 1.28; // 49px
+
+  @include breakpoint($mq-4-and-up) {
+    margin: 0 0 32px;
+    font-size: 3.5rem; // 56px -> line-height: 72px;
+  }
+}
+
+.dvag-type-950 {
+  @extend %dvag-type-950;
+}
+
+@include generate-font-variants($font: '950');
+
+// LSG-Typography-Type
+// Placeholder-Tag: p
+// Placeholder-Word-Count: 10
+%dvag-type-900 {
+  margin: 0 0 16px;
+  font-family: $dva-typo__dvag-type;
+  font-size: 2rem; // 32px
+  line-height: 1.27; // 41px
+
+  @include breakpoint($mq-4-and-up) {
+    margin: 0 0 32px;
+    font-size: 2.75rem; // 44px -> line-height: 56px;
+  }
+}
+
+.dvag-type-900 {
+  @extend %dvag-type-900;
+}
+
+@include generate-font-variants($font: '900');
+
+// LSG-Typography-Type
+// Placeholder-Tag: p
+// Placeholder-Word-Count: 15
+%dvag-type-850 {
+  margin: 0 0 16px;
+  font-family: $dva-typo__dvag-type;
+  font-size: 1.75rem; // 28px
+  line-height: 1.35; // 38px
+
+  @include breakpoint($mq-4-and-up) {
+    margin: 0 0 24px;
+    font-size: 2.5rem; // 40px -> line-height: 54px;
+  }
+}
+
+.dvag-type-850 {
+  @extend %dvag-type-850;
+}
+
+@include generate-font-variants($font: '850');
+
+// LSG-Typography-Type
+// Placeholder-Tag: p
+// Placeholder-Word-Count: 15
+%dvag-type-800 {
+  margin: 0 0 16px;
+  font-family: $dva-typo__dvag-type;
+  font-size: 1.5rem; // 24px
+  line-height: 1.42; // 35px
+
+  @include breakpoint($mq-4-and-up) {
+    margin: 0 0 24px;
+    font-size: 1.75rem; // 28px -> line-height: 40px;
+  }
+}
+
+.dvag-type-800 {
+  @extend %dvag-type-800;
+}
+
+@include generate-font-variants($font: '800');
+
+// LSG-Typography-Type
+// Placeholder-Tag: p
+// Placeholder-Word-Count: 15
+%dvag-type-750 {
+  margin: 0 0 16px;
+  font-family: $dva-typo__dvag-type;
+  font-size: 1.5rem; // 24px
+  line-height: 1.33; // 32px
+}
+
+.dvag-type-750 {
+  @extend %dvag-type-750;
+}
+
+@include generate-font-variants($font: '750');
+
+// LSG-Typography-Type
+// Placeholder-Tag: p
+// Placeholder-Word-Count: 15
+%dvag-type-700 {
+  margin: 0 0 16px;
+  font-family: $dva-typo__dvag-type;
+  font-size: 1.25rem; // 20px
+  line-height: 1.4; // 28px
+}
+
+.dvag-type-700 {
+  @extend %dvag-type-700;
+}
+
+@include generate-font-variants($font: '700');
+
+// LSG-Typography-Type
+// Placeholder-Tag: p
+// Placeholder-Word-Count: 100
+%dvag-type-550 {
+  margin: 0;
+  font-family: $dva-typo__dvag-type;
+  font-size: 1.125rem; // 18px
+  line-height: 1.44; // 26px
+}
+
+.dvag-type-550 {
+  @extend %dvag-type-550;
+}
+
+@include generate-font-variants($font: '550');
+
+// LSG-Typography-Type
+// Placeholder-Tag: p
+// Placeholder-Word-Count: 100
+%dvag-type-500 {
+  margin: 0;
+  font-family: $dva-typo__dvag-type;
+  font-size: 1rem; // 16px
+  line-height: 1.5; // 24px
+}
+
+.dvag-type-500 {
+  @extend %dvag-type-500;
+}
+
+@include generate-font-variants($font: '500');
+
+// LSG-Typography-Type
+// Placeholder-Tag: p
+// Placeholder-Word-Count: 100
+%dvag-type-400 {
+  margin: 0;
+  font-family: $dva-typo__dvag-type;
+  font-size: 0.875rem; // 14px
+  line-height: 1.57; // 22px
+}
+
+.dvag-type-400 {
+  @extend %dvag-type-400;
+}
+
+@include generate-font-variants($font: '400');
+
+// LSG-Typography-Type
+// Placeholder-Tag: p
+// Placeholder-Word-Count: 100
+%dvag-type-200 {
+  margin: 0;
+  font-family: $dva-typo__dvag-type;
+  font-size: 0.75rem; // 12px
+  line-height: 1.5; // 18px
+}
+
+.dvag-type-200 {
+  @extend %dvag-type-200;
+}
+
+@include generate-font-variants($font: '200');

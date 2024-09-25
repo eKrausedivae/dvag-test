@@ -1,0 +1,22 @@
+%legacy-button-override {
+  button {
+    min-height: initial;
+    padding: initial;
+    letter-spacing: initial;
+    border: none;
+    border-radius: initial;
+    transition: initial;
+
+    &:hover {
+      background: transparent;
+      /* stylelint-disable-next-line scale-unlimited/declaration-strict-value */
+      border: initial;
+    }
+  }
+
+  &:not(.touchevents) button:hover {
+    background: transparent;
+    /* stylelint-disable-next-line scale-unlimited/declaration-strict-value */
+    border: initial;
+  }
+}

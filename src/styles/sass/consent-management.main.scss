@@ -1,0 +1,21 @@
+@import '~breakpoint-sass/stylesheets/breakpoint';
+@import './base/colors';
+@import './base/mixins';
+@import './base/grid';
+@import './base/typography';
+@import './base/globalDefinitions';
+@import './base/animations';
+@import './base/extendables';
+
+html * {
+  box-sizing: border-box;
+}
+
+body {
+  /* stylelint-disable selector-no-qualifying-type */
+  &.dvag-state-cookie-overlay-open {
+    overflow: hidden;
+    height: 100%;
+  }
+  /* stylelint-enable selector-no-qualifying-type */
+}
